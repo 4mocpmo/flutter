@@ -1,9 +1,9 @@
+import 'dart:math';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -11,24 +11,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.deepPurple,
-        bottomAppBarColor: Colors.red,
-        scaffoldBackgroundColor: Color.fromRGBO(21 ,15, 40, 28),
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: ThemeData.dark(),
+//        // This is t
+//        he theme of your application.
+//        //
+//        // Try running your application with "flutter run". You'll see the
+//        // application has a blue toolbar. Then, without quitting the app, try
+//        // changing the primarySwatch below to Colors.green and then invoke
+//        // "hot reload" (press "r" in the console where you ran "flutter run",
+//        // or simply save your changes to "hot reload" in a Flutter IDE).
+//        // Notice that the counter didn't reset back to zero; the application
+//        // is not restarted.
+//        primarySwatch: Colors.deepPurple,
+//        bottomAppBarColor: Colors.red,
+//        scaffoldBackgroundColor: Color.fromRGBO(21 ,15, 40, 28),
+//        // This makes the visual density adapt to the platform that you run
+//        // the app on. For desktop platforms, the controls will be smaller and
+//        // closer together (more dense) than on mobile platforms.
+//        visualDensity: VisualDensity.adaptivePlatformDensity,
+//      ),
       home: MyHomePage(title: 'my first flutter  app'),
     );
   }
@@ -53,7 +54,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _flag = 0;
 
   void _incrementCounter() {
     setState(() {
@@ -62,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
+      _flag = Random.secure().nextInt(100);
     });
   }
 
@@ -103,11 +104,11 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              'Your random number between (0_100):',
               style: TextStyle(fontSize: 21 , color: Colors.white),
             ),
             Text(
-              '$_counter',
+              '$_flag',
                 style: TextStyle(fontSize: 30 , color: Colors.yellow , wordSpacing: 2)
             ),
           ],
